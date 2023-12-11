@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block content %}
+	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+		<div class="container">
+			<a class="navbar-brand" href="#">Mon compte
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/login">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/register">Sign in</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<main class="login-form">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header">Register</div>
+						<div class="card-body">
+							{{ form_errors(registrationForm) }}
+
+							{{ form_start(registrationForm, {'attr': {'class': 'form-horizontal'}}) }}
+
+							<div class="form-group row">
+								{{ form_label(registrationForm.firstname, null, {'label_attr': {'class': 'col-md-4
+                            col-form-label text-md-right'}, 'label': 'First Name'}) }}
+								<div class="col-md-6">
+									{{ form_widget(registrationForm.firstname, {'attr': {'class': 'form-control'}})
+																											                                }}
+								</div>
+							</div>
+
+							<div class="form-group row">
+								{{ form_label(registrationForm.lastname, null, {'label_attr': {'class': 'col-md-4
+                            col-form-label text-md-right'}, 'label': 'Last Name'}) }}
+								<div class="col-md-6">
+									{{ form_widget(registrationForm.lastname, {'attr': {'class': 'form-control'}})
+																											                                }}
+								</div>
+							</div>
+
+							<div class="form-group row">
+								{{ form_label(registrationForm.email, null, {'label_attr': {'class': 'col-md-4
+                            col-form-label text-md-right'}, 'label': 'E-Mail Address'}) }}
+								<div class="col-md-6">
+									{{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+								</div>
+							</div>
+
+							<div class="form-group row">
+								{{ form_label(registrationForm.plainPassword, null, {'label_attr': {'class':
+                            'col-md-4 col-form-label text-md-right'}, 'label': 'Password'}) }}
+								<div class="col-md-6">
+									{{ form_widget(registrationForm.plainPassword, {'attr': {'class':
+                                'form-control'}}) }}
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-md-6 offset-md-4">
+									{{ form_widget(registrationForm.agreeTerms) }}
+									<label for="{{ registrationForm.agreeTerms.vars.id }}">
+										I accept the terms and conditions
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group row mb-0">
+								<div class="col-md-6 offset-md-4">
+									<button type="submit" class="btn btn-primary">Confirm</button>
+								</div>
+							</div>
+
+							{{ form_end(registrationForm) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}
