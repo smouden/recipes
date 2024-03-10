@@ -1,0 +1,590 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe
+{% endblock %}
+
+
+{% block content %}
+
+	<!-- SubHeader -->
+	<section class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('assets/images/recipes.png') }}" data-natural-width="1400" data-natural-height="520">
+		<div id="sub_header">
+			<div class="container" id="sub_content">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>More than
+							<span class="number">50000</span>
+							Recipe.</h1>
+						<h3>We Know How To Make Your Life Awesome.</h3>
+						<form method="post" action="#">
+							<div id="custom-search-input">
+								<div class="input-group">
+									<input type="text" class="search-query" placeholder="Search...">
+									<span class="input-group-btn">
+										<input type="submit" class="btn_search" value="submit">
+									</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- End row -->
+			</div>
+			<!-- End container -->
+		</div>
+	</section>
+
+	<!-- End SubHeader -->
+
+
+	<div class="container margin_60">
+		<div class="main_title">
+			<h2 class="nomargin_top">Top Review</h2>
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+			<hr class="divider">
+		</div>
+		<!-- End main_title -->
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="recipes-review">
+					<div class="recipes-img">
+						<img src="http://placehold.it/350x220" alt=""/>
+						<div class="favorite active">
+							<a href="javascript:void(0);">
+								<i class="fas fa-heart"></i>
+							</a>
+						</div>
+					</div>
+					<div class="recipes-content">
+						<h3>
+							<a href="#">Lorem ipsum dolor sit amet</a>
+						</h3>
+						<div class="ratings">
+							<ul class="stars">
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+							</ul>
+							<!-- End stars -->
+							<span>134</span>
+						</div>
+						<div class="col-details">
+							<ul class="details">
+								<li>
+									<img src="http://placehold.it/48x48" class="img-profile" alt="">
+								</li>
+								<li>
+									<h4>Themearabia</h4>
+									<ul class="favorites">
+										<li>
+											<i class="fas fa-heart"></i>
+										</li>
+										<li>
+											<span>235</span>
+										</li>
+									</ul>
+									<ul class="comments">
+										<li>
+											<i class="far fa-comments"></i>
+										</li>
+										<li>
+											<span>36</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="review-final-score">
+								<h3>9.9</h3>
+								<h4>Review Score</h4>
+							</div>
+						</div>
+					</div>
+					<div class="review-box review-percentage">
+						<h2 class="review-box-header">Review Title</h2>
+						<div class="review-item">
+							<h5>Design - 10</h5>
+							<span style="width: 100%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.1</h5>
+							<span style="width: 91%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.4</h5>
+							<span style="width: 94%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9</h5>
+							<span style="width: 90%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.6</h5>
+							<span style="width: 96%;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="recipes-review">
+					<div class="recipes-img">
+						<img src="http://placehold.it/350x220" alt=""/>
+						<div class="favorite active">
+							<a href="javascript:void(0);">
+								<i class="fas fa-heart"></i>
+							</a>
+						</div>
+					</div>
+					<div class="recipes-content">
+						<h3>
+							<a href="#">Lorem ipsum dolor sit amet</a>
+						</h3>
+						<div class="ratings">
+							<ul class="stars">
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+							</ul>
+							<!-- End stars -->
+							<span>134</span>
+						</div>
+						<div class="col-details">
+							<ul class="details">
+								<li>
+									<img src="http://placehold.it/48x48" class="img-profile" alt="">
+								</li>
+								<li>
+									<h4>Themearabia</h4>
+									<ul class="favorites">
+										<li>
+											<i class="fas fa-heart"></i>
+										</li>
+										<li>
+											<span>235</span>
+										</li>
+									</ul>
+									<ul class="comments">
+										<li>
+											<i class="far fa-comments"></i>
+										</li>
+										<li>
+											<span>36</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="review-final-score">
+								<h3>9.9</h3>
+								<h4>Review Score</h4>
+							</div>
+						</div>
+					</div>
+					<div class="review-box review-percentage">
+						<h2 class="review-box-header">Review Title</h2>
+						<div class="review-item">
+							<h5>Design - 10</h5>
+							<span style="width: 100%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.1</h5>
+							<span style="width: 91%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.4</h5>
+							<span style="width: 94%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9</h5>
+							<span style="width: 90%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.6</h5>
+							<span style="width: 96%;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="recipes-review">
+					<div class="recipes-img">
+						<img src="http://placehold.it/350x220" alt=""/>
+						<div class="favorite">
+							<a href="javascript:void(0);">
+								<i class="fas fa-heart"></i>
+							</a>
+						</div>
+					</div>
+					<div class="recipes-content">
+						<h3>
+							<a href="#">Lorem ipsum dolor sit amet</a>
+						</h3>
+						<div class="ratings">
+							<ul class="stars">
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+							</ul>
+							<!-- End stars -->
+							<span>134</span>
+						</div>
+						<div class="col-details">
+							<ul class="details">
+								<li>
+									<img src="http://placehold.it/48x48" class="img-profile" alt="">
+								</li>
+								<li>
+									<h4>Themearabia</h4>
+									<ul class="favorites">
+										<li>
+											<i class="fas fa-heart"></i>
+										</li>
+										<li>
+											<span>235</span>
+										</li>
+									</ul>
+									<ul class="comments">
+										<li>
+											<i class="far fa-comments"></i>
+										</li>
+										<li>
+											<span>36</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="review-final-score">
+								<h3>9.9</h3>
+								<h4>Review Score</h4>
+							</div>
+						</div>
+					</div>
+					<div class="review-box review-percentage">
+						<h2 class="review-box-header">Review Title</h2>
+						<div class="review-item">
+							<h5>Design - 10</h5>
+							<span style="width: 100%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.1</h5>
+							<span style="width: 91%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.4</h5>
+							<span style="width: 94%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9</h5>
+							<span style="width: 90%;"></span>
+						</div>
+						<div class="review-item">
+							<h5>Design - 9.6</h5>
+							<span style="width: 96%;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="recipes-review">
+					<div class="recipes-img">
+						<img src="http://placehold.it/350x220" alt=""/>
+						<div class="favorite">
+							<a href="javascript:void(0);">
+								<i class="fas fa-heart"></i>
+							</a>
+						</div>
+					</div>
+					<div class="recipes-content">
+						<h3>
+							<a href="#">Lorem ipsum dolor sit amet</a>
+						</h3>
+						<div class="ratings">
+							<ul class="stars">
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+							</ul>
+							<!-- End stars -->
+							<span>134</span>
+						</div>
+						<div class="col-details">
+							<ul class="details">
+								<li>
+									<img src="{{ asset('assets/images/header.png') }}" class="img-profile" alt="">
+								</li>
+								<li>
+									<h4>Themearabia</h4>
+									<ul class="favorites">
+										<li>
+											<i class="fas fa-heart"></i>
+										</li>
+										<li>
+											<span>235</span>
+										</li>
+									</ul>
+									<ul class="comments">
+										<li>
+											<i class="far fa-comments"></i>
+										</li>
+										<li>
+											<span>36</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="review-final-score">
+								<h3>9.9</h3>
+								<h4>Review Score</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="recipes-review">
+					<div class="recipes-img">
+						<img src="http://placehold.it/350x220" alt=""/>
+						<div class="favorite">
+							<a href="javascript:void(0);">
+								<i class="fas fa-heart"></i>
+							</a>
+						</div>
+					</div>
+					<div class="recipes-content">
+						<h3>
+							<a href="#">Lorem ipsum dolor sit amet</a>
+						</h3>
+						<div class="ratings">
+							<ul class="stars">
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+							</ul>
+							<!-- End stars -->
+							<span>134</span>
+						</div>
+						<div class="col-details">
+							<ul class="details">
+								<li>
+									<img src="http://placehold.it/48x48" class="img-profile" alt="">
+								</li>
+								<li>
+									<h4>Themearabia</h4>
+									<ul class="favorites">
+										<li>
+											<i class="fas fa-heart"></i>
+										</li>
+										<li>
+											<span>235</span>
+										</li>
+									</ul>
+									<ul class="comments">
+										<li>
+											<i class="far fa-comments"></i>
+										</li>
+										<li>
+											<span>36</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="review-final-score">
+								<h3>9.9</h3>
+								<h4>Review Score</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="recipes-review">
+					<div class="recipes-img">
+						<img src="http://placehold.it/350x220" alt=""/>
+						<div class="favorite">
+							<a href="javascript:void(0);">
+								<i class="fas fa-heart"></i>
+							</a>
+						</div>
+					</div>
+					<div class="recipes-content">
+						<h3>
+							<a href="#">Lorem ipsum dolor sit amet</a>
+						</h3>
+						<div class="ratings">
+							<ul class="stars">
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#" class="icon">
+										<i class="fas fa-star"></i>
+									</a>
+								</li>
+							</ul>
+							<!-- End stars -->
+							<span>134</span>
+						</div>
+						<div class="col-details">
+							<ul class="details">
+								<li>
+									<img src="http://placehold.it/48x48" class="img-profile" alt="">
+								</li>
+								<li>
+									<h4>Themearabia</h4>
+									<ul class="favorites">
+										<li>
+											<i class="fas fa-heart"></i>
+										</li>
+										<li>
+											<span>235</span>
+										</li>
+									</ul>
+									<ul class="comments">
+										<li>
+											<i class="far fa-comments"></i>
+										</li>
+										<li>
+											<span>36</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="review-final-score">
+								<h3>9.9</h3>
+								<h4>Review Score</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End container -->
+
+{% endblock %}

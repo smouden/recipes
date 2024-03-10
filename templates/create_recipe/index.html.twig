@@ -1,0 +1,193 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create-recipe
+{% endblock %}
+
+{% block content %}
+	<!-- SubHeader -->
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
+		<div id="sub_header">
+			<div class="container" id="sub_content">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Create Recipe</h1>
+						<!-- End bread-crums -->
+					</div>
+				</div>
+				<!-- End row -->
+			</div>
+			<!-- End container -->
+		</div>
+	</section>
+	<!-- End SubHeader -->
+	<div class="white_bg create-recipe">
+		<div class="container margin_60">
+			<div class="main_title">
+				<h2 class="nomargin_top">Create Recipe</h2>
+				<hr class="divider">
+			</div>
+			<form action="#" method="post">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="form-group">
+							<label for="recipetitle">Recipe title</label>
+							<input type="text" id="recipetitle" class="form-control" placeholder="Recipe title">
+						</div>
+						<div class="form-group">
+							<label for="description">Description</label>
+							<textarea id="description" name="description" class="form-control" rows="8"></textarea>
+						</div>
+						<div class="form-group">
+							<div class="recipe-ingredient">
+								<div class="row-recipe-ingredient">
+									<div class="col-recipe-ingredient">
+										<i class="ic icon-weight"></i>
+										<span class="count-of">1</span>
+										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
+									</div>
+									<div class="col-recipe-ingredient">
+										<i class="ic icon-weight"></i>
+										<span class="count-of">2</span>
+										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-ingredient">
+										<i class="ic icon-weight"></i>
+										<span class="count-of">3</span>
+										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-ingredient">
+										<i class="ic icon-weight"></i>
+										<span class="count-of">4</span>
+										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-ingredient">
+										<i class="ic icon-weight"></i>
+										<span class="count-of">5</span>
+										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-ingredient">
+										<i class="ic icon-weight"></i>
+										<span class="count-of">6</span>
+										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+								</div>
+								<button type="button" class="btn btn-addnew-item">
+									<i class="far fa-plus-square"></i>
+									Add New Ingredient</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="recipe-instructions">
+								<div class="row-recipe-instructions">
+									<div class="col-recipe-instructions">
+										<i class="ic icon-manual-madrab"></i>
+										<span class="count-of">1</span>
+										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
+									</div>
+									<div class="col-recipe-instructions">
+										<i class="ic icon-manual-madrab"></i>
+										<span class="count-of">2</span>
+										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-instructions">
+										<i class="ic icon-manual-madrab"></i>
+										<span class="count-of">3</span>
+										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-instructions">
+										<i class="ic icon-manual-madrab"></i>
+										<span class="count-of">4</span>
+										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-instructions">
+										<i class="ic icon-manual-madrab"></i>
+										<span class="count-of">5</span>
+										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+									<div class="col-recipe-instructions">
+										<i class="ic icon-manual-madrab"></i>
+										<span class="count-of">6</span>
+										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
+										<span class="remove-recipe-col">
+											<i class="far fa-times-circle"></i>
+										</span>
+									</div>
+								</div>
+								<button type="button" class="btn btn-addnew-item">
+									<i class="far fa-plus-square"></i>
+									Add New Instructions</button>
+							</div>
+						</div>
+					</div>
+					<aside class="col-md-4 sidebar sticky-sidebar">
+						<div class="theiaStickySidebar">
+							<div class="form-group">
+								<div class="add-photo">
+									<label class="icon-picture gray">
+										<input type="file" name="picture" id="picture">
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="preptime">Category</label>
+								<input type="text" id="preptime" class="form-control" placeholder="Prep time">
+							</div>
+							<div class="form-group">
+								<label for="preptime">Prep time</label>
+								<input type="text" id="preptime" class="form-control" placeholder="Prep time">
+							</div>
+							<div class="form-group">
+								<label for="cooktime">Cook time</label>
+								<input type="text" id="cooktime" class="form-control" placeholder="Cook time">
+							</div>
+							<div class="form-group">
+								<label for="numberofservings">Number of servings</label>
+								<input type="text" id="numberofservings" class="form-control" placeholder="Number of servings">
+							</div>
+							<div class="form-group">
+								<div class="recipe-button">
+									<button type="button" class="btn btn-publish">Publish</button>
+									<button type="button" class="btn btn-save">Save</button>
+									<button type="button" class="btn btn-cancel">Cancel</button>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</form>
+		</div>
+		<!-- End container -->
+	</div>
+	<!-- End white_bg -->
+
+
+	{% block javascripts %}{% endblock %}
+
+{% endblock %}
