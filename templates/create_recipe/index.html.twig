@@ -26,168 +26,92 @@
 				<h2 class="nomargin_top">Create Recipe</h2>
 				<hr class="divider">
 			</div>
-			<form action="#" method="post">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="form-group">
-							<label for="recipetitle">Recipe title</label>
-							<input type="text" id="recipetitle" class="form-control" placeholder="Recipe title">
-						</div>
-						<div class="form-group">
-							<label for="description">Description</label>
-							<textarea id="description" name="description" class="form-control" rows="8"></textarea>
-						</div>
-						<div class="form-group">
-							<div class="recipe-ingredient">
-								<div class="row-recipe-ingredient">
-									<div class="col-recipe-ingredient">
-										<i class="ic icon-weight"></i>
-										<span class="count-of">1</span>
-										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
-									</div>
-									<div class="col-recipe-ingredient">
-										<i class="ic icon-weight"></i>
-										<span class="count-of">2</span>
-										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-ingredient">
-										<i class="ic icon-weight"></i>
-										<span class="count-of">3</span>
-										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-ingredient">
-										<i class="ic icon-weight"></i>
-										<span class="count-of">4</span>
-										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-ingredient">
-										<i class="ic icon-weight"></i>
-										<span class="count-of">5</span>
-										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-ingredient">
-										<i class="ic icon-weight"></i>
-										<span class="count-of">6</span>
-										<input type="text" class="form-control" placeholder="Ingredient" name="recipe_ingredient[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-								</div>
-								<button type="button" class="btn btn-addnew-item">
-									<i class="far fa-plus-square"></i>
-									Add New Ingredient</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="recipe-instructions">
-								<div class="row-recipe-instructions">
-									<div class="col-recipe-instructions">
-										<i class="ic icon-manual-madrab"></i>
-										<span class="count-of">1</span>
-										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
-									</div>
-									<div class="col-recipe-instructions">
-										<i class="ic icon-manual-madrab"></i>
-										<span class="count-of">2</span>
-										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-instructions">
-										<i class="ic icon-manual-madrab"></i>
-										<span class="count-of">3</span>
-										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-instructions">
-										<i class="ic icon-manual-madrab"></i>
-										<span class="count-of">4</span>
-										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-instructions">
-										<i class="ic icon-manual-madrab"></i>
-										<span class="count-of">5</span>
-										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-									<div class="col-recipe-instructions">
-										<i class="ic icon-manual-madrab"></i>
-										<span class="count-of">6</span>
-										<input type="text" class="form-control" placeholder="Instructions" name="recipe_instructions[]">
-										<span class="remove-recipe-col">
-											<i class="far fa-times-circle"></i>
-										</span>
-									</div>
-								</div>
-								<button type="button" class="btn btn-addnew-item">
-									<i class="far fa-plus-square"></i>
-									Add New Instructions</button>
-							</div>
-						</div>
+			{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+			<div class="row">
+				<div class="col-md-8">
+					{{ form_row(form.title_recipe, {'attr': {'class': 'form-control', 'placeholder': 'Recipe title'}}) }}
+					{{ form_row(form.description_recipe, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder': 'Description'}}) }}
+					{{ form_row(form.procedure, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder': 'Procedure'}}) }}
+					{# Ajoutez ici d'autres champs si nécessaire #}
+
+					{# Pour les ingrédients, supposons que vous ayez configuré un CollectionType dans votre RecipeType #}
+						<div class="form-group"> <label>Ingrédients</label>
+						{{ form_widget(form.ingredient) }}
+						<button type="button" class="btn btn-addnew-item">Ajouter un nouvel ingrédient</button>
 					</div>
-					<aside class="col-md-4 sidebar sticky-sidebar">
-						<div class="theiaStickySidebar">
-							<div class="form-group">
-								<div class="add-photo">
-									<label class="icon-picture gray">
-										<input type="file" name="picture" id="picture">
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="preptime">Category</label>
-								<input type="text" id="preptime" class="form-control" placeholder="Prep time">
-							</div>
-							<div class="form-group">
-								<label for="preptime">Prep time</label>
-								<input type="text" id="preptime" class="form-control" placeholder="Prep time">
-							</div>
-							<div class="form-group">
-								<label for="cooktime">Cook time</label>
-								<input type="text" id="cooktime" class="form-control" placeholder="Cook time">
-							</div>
-							<div class="form-group">
-								<label for="numberofservings">Number of servings</label>
-								<input type="text" id="numberofservings" class="form-control" placeholder="Number of servings">
-							</div>
-							<div class="form-group">
-								<div class="recipe-button">
-									<button type="button" class="btn btn-publish">Publish</button>
-									<button type="button" class="btn btn-save">Save</button>
-									<button type="button" class="btn btn-cancel">Cancel</button>
-								</div>
-							</div>
-						</div>
-					</aside>
+
 				</div>
-			</form>
+				<aside class="col-md-4 sidebar sticky-sidebar">
+					{{ form_row(form.picture_recipe, {'attr': {'class': 'form-control'}}) }}
+					{{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
+					{{ form_row(form.prep_time, {'attr': {'class': 'form-control', 'placeholder': 'Prep time'}}) }}
+					{{ form_row(form.cook_time, {'attr': {'class': 'form-control', 'placeholder': 'Cook time'}}) }}
+					{{ form_row(form.number_serving, {'attr': {'class': 'form-control', 'placeholder': 'Number of servings'}}) }}
+				</aside>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-publish">Publier</button>
+				<button type="button" class="btn btn-cancel">Annuler</button>
+			</div>
+
+			{{ form_end(form) }}
+
 		</div>
 		<!-- End container -->
 	</div>
 	<!-- End white_bg -->
 
 
-	{% block javascripts %}{% endblock %}
+	{% block javascripts %}
+		<script>
+			$(document).ready(function () { // Gérer l'ajout de nouveaux ingrédients
+$('.recipe-ingredient .btn-addnew-item').click(function () {
+addNewItem('.recipe-ingredient .row-recipe-ingredient', 'ingredient');
+});
+
+// Gérer l'ajout de nouvelles instructions
+$('.recipe-instructions .btn-addnew-item').click(function () {
+addNewItem('.recipe-instructions .row-recipe-instructions', 'instruction');
+});
+
+function addNewItem(containerClass, type) {
+var countOfItems = $(containerClass + ' .col-recipe-' + type + 's').length;
+var newItemHtml = `<div class="col-recipe-${
+type + 's'
+}">
+									<i class="ic icon-${
+type === 'ingredient' ? 'weight' : 'manual-madrab'
+}"></i>
+									<span class="count-of">${
+countOfItems + 1
+}</span>
+									<input type="text" class="form-control" placeholder="${
+type.charAt(0).toUpperCase() + type.slice(1)
+}" name="recipe_${type}[]">
+									${
+countOfItems > 0 ? '<span class="remove-recipe-col"><i class="far fa-times-circle"></i></span>' : ''
+}
+								</div>`;
+
+$(containerClass).append(newItemHtml);
+attachRemoveListener();
+}
+
+// Fonction pour attacher les écouteurs d'événement de suppression
+function attachRemoveListener() {
+$('.remove-recipe-col').off('click').on('click', function () {
+$(this).closest('div[class^="col-recipe-"]').remove();
+});
+}
+
+// Attacher dès le chargement initial
+attachRemoveListener();
+});
+		</script>
+
+
+	{% endblock %}
 
 {% endblock %}

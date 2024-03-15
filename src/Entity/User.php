@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
+
+    #[ORM\OneToMany(mappedBy: 'creator_recipe', targetEntity: Recipe::class, orphanRemoval: true)]
+    private Collection $recipe;
+
+    public function __construct()
+    {
+        $this->recipe = new ArrayCollection();
+    }
+    public function __toString()
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
 
     public function getId(): ?int
     {
@@ -126,6 +140,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): static
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipe>
+     */
+    public function getRecipe(): Collection
+    {
+        return $this->recipe;
+    }
+
+    public function addRecipe(Recipe $recipe): static
+    {
+        if (!$this->recipe->contains($recipe)) {
+            $this->recipe->add($recipe);
+            $recipe->setCreatorRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipe $recipe): static
+    {
+        if ($this->recipe->removeElement($recipe)) {
+            // set the owning side to null (unless already changed)
+            if ($recipe->getCreatorRecipe() === $this) {
+                $recipe->setCreatorRecipe(null);
+            }
+        }
 
         return $this;
     }

@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Controller\Admin;
+use App\Entity\Category;
 use App\Entity\Contact;
+use App\Entity\Ingredient;
+use App\Entity\Instruction;
 use App\Entity\Insurance;
 use App\Entity\Car;
 use App\Entity\Picture;
+use App\Entity\Recipe;
 use App\Entity\Reservation;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -22,9 +26,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(InsuranceCrudController::class)->generateUrl();
-        $url = $routeBuilder->setController(CarCrudController::class)->generateUrl();
-        $url = $routeBuilder->setController(ReservationCrudController::class)->generateUrl();
+        $url = $routeBuilder->setController(UserCrudController::class)->generateUrl();
 
         return $this->redirect($url);
     }
@@ -39,11 +41,11 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home','');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', Assurance::class);
-        yield MenuItem::linkToCrud('insurance', 'fa fa-handshake-o', Insurance::class);
-        yield MenuItem::linkToCrud('cars', 'fa fa-car', Car::class);
-        yield MenuItem::linkToCrud('Reservation', 'fa fa-address-card-o', Reservation::class);
-        yield MenuItem::linkToCrud('Contact', 'fa fa-comments', Contact::class);
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
-        yield MenuItem::linkToCrud('Picture', 'fa fa-picture-o', Picture::class);
+        yield MenuItem::linkToCrud('Recipe Category', 'fa fa-tags', Category::class); // "fa-tags" ou une autre icône qui représente des catégories ou des classifications.
+        yield MenuItem::linkToCrud('Recipe', 'fa fa-book', Recipe::class); // "fa-book" pour représenter des recettes comme dans un livre de recettes.
+        yield MenuItem::linkToCrud('Ingredient', 'fa fa-lemon', Ingredient::class); 
+        
+
     }
 }
