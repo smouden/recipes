@@ -41,9 +41,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'creator_recipe', targetEntity: Recipe::class, orphanRemoval: true)]
     private Collection $recipe;
 
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $picture_user = null;
+
+    #[ORM\OneToMany(mappedBy: 'commentator', targetEntity: Comment::class, orphanRemoval: true)]
+    private Collection $comments;
+
     public function __construct()
     {
         $this->recipe = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
     public function __toString()
     {
@@ -168,6 +176,49 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($recipe->getCreatorRecipe() === $this) {
                 $recipe->setCreatorRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+    public function getPictureUser(): ?string
+    {
+        return $this->picture_user;
+    }
+
+    public function setPictureUser(?string $picture_user): static
+    {
+        $this->picture_user = $picture_user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): static
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setCommentator($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getCommentator() === $this) {
+                $comment->setCommentator(null);
             }
         }
 

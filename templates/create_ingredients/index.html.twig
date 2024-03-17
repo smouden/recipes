@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create-ingredients
+{% endblock %}
+
+{% block content %}
+
+	<!-- SubHeader -->
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="http://placehold.it/1400x300" data-natural-width="1400" data-natural-height="300">
+		<div id="sub_header">
+			<div class="container" id="sub_content">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Recipe Ingredient's</h1>
+						<div class="bread-crums">
+							<a href="#">Home</a>
+							<span class="bread-crums-span">&raquo;</span>
+							<a href="#">Pages</a>
+							<span class="bread-crums-span">&raquo;</span>
+							<span class="current">Create Recipe</span>
+						</div>
+						<!-- End bread-crums -->
+					</div>
+				</div>
+				<!-- End row -->
+			</div>
+			<!-- End container -->
+		</div>
+	</section>
+	<!-- End SubHeader -->
+
+	<div class="white_bg create-recipe">
+		<div class="container margin_60">
+			<div class="main_title text-center">
+				<h2 class="nomargin_top">Create Ingredient</h2>
+				<hr class="divider">
+			</div>
+			{{ form_start(ingredient_form, {'attr': {'class': 'form-horizontal'}}) }}
+			<div class="row">
+				<div
+					class="col-md-offset-2 col-md-7">
+					<!-- Affichez ici le champ du formulaire pour le titre de l'ingrédient -->
+					{{ form_row(ingredient_form.name_ingredient, {'attr': {'class': 'form-control', 'placeholder':
+                'Ingredient Title'}}) }}
+				</div>
+				<div
+					class="col-md-1">
+					<!-- Le bouton pour soumettre le formulaire -->
+					<button type="submit" class="btn btn-success btn-block">Save</button>
+				</div>
+			</div>
+			{{ form_end(ingredient_form) }}
+
+
+			<form action="{{ path('app_recipes') }}" method="get">
+				<button type="submit" class="btn btn-publish">Post it</button>
+			</form>
+
+
+		</div>
+		<!-- End container -->
+	</div>
+	<!-- End white_bg -->
+
+
+{% endblock %}

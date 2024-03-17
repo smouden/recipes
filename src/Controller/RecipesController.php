@@ -25,4 +25,19 @@ class RecipesController extends AbstractController
         ]);
     }
 
+
+    #[Route('/Recipes/{id}', name: 'app_recipe_detail', requirements: ['id' => '\d+'])]
+    public function detail(int $id, RecipeRepository $recipeRepository): Response
+    {
+        $recipe = $recipeRepository->find($id);
+
+        if (!$recipe) {
+            throw $this->createNotFoundException('La recette demandée n\'existe pas.');
+        }
+
+        return $this->render('single_recipe/index.html.twig', [
+            'recipe' => $recipe,
+        ]);
+    }
+
 }

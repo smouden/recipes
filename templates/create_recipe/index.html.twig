@@ -4,114 +4,67 @@
 {% endblock %}
 
 {% block content %}
-	<!-- SubHeader -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
-		<div id="sub_header">
-			<div class="container" id="sub_content">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>Create Recipe</h1>
-						<!-- End bread-crums -->
-					</div>
-				</div>
-				<!-- End row -->
-			</div>
-			<!-- End container -->
-		</div>
-	</section>
-	<!-- End SubHeader -->
-	<div class="white_bg create-recipe">
-		<div class="container margin_60">
-			<div class="main_title">
-				<h2 class="nomargin_top">Create Recipe</h2>
-				<hr class="divider">
-			</div>
-			{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-
+<!-- SubHeader -->
+<section class="parallax-window" id="short" data-parallax="scroll"
+	data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
+	<div id="sub_header">
+		<div class="container" id="sub_content">
 			<div class="row">
-				<div class="col-md-8">
-					{{ form_row(form.title_recipe, {'attr': {'class': 'form-control', 'placeholder': 'Recipe title'}}) }}
-					{{ form_row(form.description_recipe, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder': 'Description'}}) }}
-					{{ form_row(form.procedure, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder': 'Procedure'}}) }}
-					{# Ajoutez ici d'autres champs si nécessaire #}
-
-					{# Pour les ingrédients, supposons que vous ayez configuré un CollectionType dans votre RecipeType #}
-						<div class="form-group"> <label>Ingrédients</label>
-						{{ form_widget(form.ingredient) }}
-						<button type="button" class="btn btn-addnew-item">Ajouter un nouvel ingrédient</button>
-					</div>
-
+				<div class="col-md-12">
+					<h1>Create Recipe</h1>
+					<!-- End bread-crums -->
 				</div>
-				<aside class="col-md-4 sidebar sticky-sidebar">
-					{{ form_row(form.picture_recipe, {'attr': {'class': 'form-control'}}) }}
-					{{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
-					{{ form_row(form.prep_time, {'attr': {'class': 'form-control', 'placeholder': 'Prep time'}}) }}
-					{{ form_row(form.cook_time, {'attr': {'class': 'form-control', 'placeholder': 'Cook time'}}) }}
-					{{ form_row(form.number_serving, {'attr': {'class': 'form-control', 'placeholder': 'Number of servings'}}) }}
-				</aside>
 			</div>
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-publish">Publier</button>
-				<button type="button" class="btn btn-cancel">Annuler</button>
-			</div>
-
-			{{ form_end(form) }}
-
+			<!-- End row -->
 		</div>
 		<!-- End container -->
 	</div>
-	<!-- End white_bg -->
+</section>
+<!-- End SubHeader -->
 
 
-	{% block javascripts %}
-		<script>
-			$(document).ready(function () { // Gérer l'ajout de nouveaux ingrédients
-$('.recipe-ingredient .btn-addnew-item').click(function () {
-addNewItem('.recipe-ingredient .row-recipe-ingredient', 'ingredient');
-});
 
-// Gérer l'ajout de nouvelles instructions
-$('.recipe-instructions .btn-addnew-item').click(function () {
-addNewItem('.recipe-instructions .row-recipe-instructions', 'instruction');
-});
+<div class="white_bg create-recipe">
+	<div class="container margin_60">
+		<div class="main_title">
+			<h2 class="nomargin_top">Create Recipe</h2>
+			<hr class="divider">
+		</div>
+		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
-function addNewItem(containerClass, type) {
-var countOfItems = $(containerClass + ' .col-recipe-' + type + 's').length;
-var newItemHtml = `<div class="col-recipe-${
-type + 's'
-}">
-									<i class="ic icon-${
-type === 'ingredient' ? 'weight' : 'manual-madrab'
-}"></i>
-									<span class="count-of">${
-countOfItems + 1
-}</span>
-									<input type="text" class="form-control" placeholder="${
-type.charAt(0).toUpperCase() + type.slice(1)
-}" name="recipe_${type}[]">
-									${
-countOfItems > 0 ? '<span class="remove-recipe-col"><i class="far fa-times-circle"></i></span>' : ''
-}
-								</div>`;
+		<div class="row">
+			<div class="col-md-8">
+				{{ form_row(form.title_recipe, {'attr': {'class': 'form-control', 'placeholder': 'Recipe title'}}) }}
+				{{ form_row(form.description_recipe, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder':
+				'Description'}}) }}
+				{{ form_row(form.procedure, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder':
+				'Procedure'}}) }}
+				{# Ajoutez ici d'autres champs si nécessaire #}
 
-$(containerClass).append(newItemHtml);
-attachRemoveListener();
-}
+			</div>
+			<aside class="col-md-4 sidebar sticky-sidebar">
+				{{ form_row(form.picture_recipe, {'attr': {'class': 'form-control'}}) }}
+				{{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
+				{{ form_row(form.prep_time, {'attr': {'class': 'form-control', 'placeholder': 'Prep time'}}) }}
+				{{ form_row(form.cook_time, {'attr': {'class': 'form-control', 'placeholder': 'Cook time'}}) }}
+				{{ form_row(form.number_serving, {'attr': {'class': 'form-control', 'placeholder': 'Number of
+				servings'}}) }}
+			</aside>
+		</div>
 
-// Fonction pour attacher les écouteurs d'événement de suppression
-function attachRemoveListener() {
-$('.remove-recipe-col').off('click').on('click', function () {
-$(this).closest('div[class^="col-recipe-"]').remove();
-});
-}
+		<div class="form-group">
+			<button type="submit" class="btn btn-publish">confirm</button>
+			<button type="button" class="btn btn-cancel">cancel</button>
+		</div>
 
-// Attacher dès le chargement initial
-attachRemoveListener();
-});
-		</script>
+		{{ form_end(form) }}
+
+	</div>
+	<!-- End container -->
+</div>
+<!-- End white_bg -->
 
 
-	{% endblock %}
+	
 
 {% endblock %}

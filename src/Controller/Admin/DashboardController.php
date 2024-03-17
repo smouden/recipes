@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Contact;
+use App\Entity\Comment;
 use App\Entity\Ingredient;
 use App\Entity\Instruction;
 use App\Entity\Insurance;
@@ -44,8 +45,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
         yield MenuItem::linkToCrud('Recipe Category', 'fa fa-tags', Category::class); // "fa-tags" ou une autre icône qui représente des catégories ou des classifications.
         yield MenuItem::linkToCrud('Recipe', 'fa fa-book', Recipe::class); // "fa-book" pour représenter des recettes comme dans un livre de recettes.
+        yield MenuItem::linkToCrud('Comment', 'fa fa-book', Comment::class);
         yield MenuItem::linkToCrud('Ingredient', 'fa fa-lemon', Ingredient::class); 
-        
 
     }
 }

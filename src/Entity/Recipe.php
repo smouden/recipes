@@ -47,10 +47,16 @@ class Recipe
     #[ORM\Column(length: 255)]
     private ?string $procedure = null;
 
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class, orphanRemoval: true)]
+    private Collection $comments;
+
+
+
 
     public function __construct()
     {
         $this->ingredient = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
     public function __toString()
     {
@@ -193,6 +199,38 @@ class Recipe
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): static
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getRecipe() === $this) {
+                $comment->setRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
 
 }

@@ -6,6 +6,8 @@ use App\Entity\Recipe;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType; // pour images 
+
 
 class RecipeType extends AbstractType
 {
@@ -18,9 +20,13 @@ class RecipeType extends AbstractType
             ->add('prep_time')
             ->add('cook_time')
             ->add('number_serving')
-            ->add('picture_recipe')
-            ->add('creator_recipe')
-            ->add('ingredient')
+            ->add('picture_recipe', FileType::class, [
+                'label' => 'Picture of the recipe',
+                'mapped' => false, // pour dire à Symfony de ne pas associer ce champ à la propriété de l'entité
+                'required' => false,
+            ])
+            // ->add('creator_recipe')
+            //  ->add('ingredient')
             ->add('category')
         ;
     }

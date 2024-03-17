@@ -20,6 +20,14 @@ class Comment
     #[ORM\Column(length: 255)]
     private ?string $content_comment = null;
 
+    #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $commentator = null;
+
+    #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Recipe $recipe = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +53,30 @@ class Comment
     public function setContentComment(string $content_comment): static
     {
         $this->content_comment = $content_comment;
+
+        return $this;
+    }
+
+    public function getCommentator(): ?User
+    {
+        return $this->commentator;
+    }
+
+    public function setCommentator(?User $commentator): static
+    {
+        $this->commentator = $commentator;
+
+        return $this;
+    }
+
+    public function getRecipe(): ?Recipe
+    {
+        return $this->recipe;
+    }
+
+    public function setRecipe(?Recipe $recipe): static
+    {
+        $this->recipe = $recipe;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipe
+{% block title %}recipe
 {% endblock %}
 
 
@@ -52,7 +52,8 @@
 						</div>
 						<div class="recipes-content">
 							<h3>
-								<a href="#">{{ recipe.titleRecipe }}</a>							</h3>
+								<a href="{{ path('app_recipe_detail', {'id': recipe.id}) }}">{{ recipe.titleRecipe }}</a>
+							</h3>
 
 							<div class="col-details">
 								<ul class="details">
