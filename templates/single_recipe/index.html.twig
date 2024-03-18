@@ -88,38 +88,31 @@
 						<h3>Comments
 						</h3>
 						<ol class="commentlist clearfix">
-							<li class="comment">
-								<div class="comment-body clearfix">
-									<div class="avatar"><img alt="" src="http://placehold.it/100x100"></div>
-									<div class="comment-text">
-										<div class="author clearfix">
-											<div class="comment-meta">
-												<span>admin</span>
-												<div class="date">January 15 , 2015 at 10:00 pm</div>
+							{% for comment in recipe.comments %}
+								<li class="comment">
+									<div class="comment-body clearfix">
+										<div class="avatar">
+											<img
+											alt="" src="http://placehold.it/100x100">
+										<!-- Remplacez par l'image du commentateur si disponible -->
+										</div>
+										<div class="comment-text">
+											<div class="author clearfix">
+												<div class="comment-meta">
+													<span>{{ comment.commentator.firstname }}
+														{{ comment.commentator.lastname }}</span>
+													<div class="date">{{ comment.dateComment|date('F j, Y \\a\\t H:i') }}</div>
+												</div>
+											</div>
+											<div class="text">
+												<p>{{ comment.contentComment }}</p>
 											</div>
 										</div>
-										<div class="text">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
-										</div>
 									</div>
-								</div>
-							</li>
-							<li class="comment">
-								<div class="comment-body clearfix">
-									<div class="avatar"><img alt="" src="http://placehold.it/100x100"></div>
-									<div class="comment-text">
-										<div class="author clearfix">
-											<div class="comment-meta">
-												<span>admin</span>
-												<div class="date">January 15 , 2015 at 10:00 pm</div>
-											</div>
-										</div>
-										<div class="text">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat.</p>
-										</div>
-									</div>
-								</div>
-							</li>
+								</li>
+							{% else %}
+								<li>No comments yet.</li>
+							{% endfor %}
 						</ol>
 						<!-- End commentlist -->
 					</div>
@@ -128,14 +121,11 @@
 					<!-- start form comment -->
 					<div class="comment-form">
 						<h3>Leave a reply</h3>
-						<form action="#" method="post">
+						<form action="{{ path('recipe_add_comment', {'id': recipe.id}) }}" method="post">
 							<div class="form-group">
-								<input type="text" id="name" class="form-control" placeholder="Firstname Lastname">
+								<textarea id="comment" name="comment" rows="8" class="form-control" required></textarea>
 							</div>
-							<div class="form-group">
-								<textarea id="comment" name="comment" rows="8"></textarea>
-							</div>
-							<button type="submit" class="btn  btn-primary">Post Comment</button>
+							<button type="submit" class="btn btn-primary">Post Comment</button>
 						</form>
 					</div>
 					<!-- end form comment -->
