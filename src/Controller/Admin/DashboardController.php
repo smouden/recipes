@@ -6,6 +6,7 @@ use App\Entity\Comment;
 use App\Entity\Ingredient;
 use App\Entity\Recipe;
 use App\Entity\User;
+use App\Entity\Like;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -39,7 +40,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
         yield MenuItem::linkToCrud('Recipe Category', 'fa fa-tags', Category::class); // "fa-tags" ou une autre icône qui représente des catégories ou des classifications.
         yield MenuItem::linkToCrud('Recipe', 'fa fa-book', Recipe::class); // "fa-book" pour représenter des recettes comme dans un livre de recettes.
-        yield MenuItem::linkToCrud('Comment', 'fa fa-book', Comment::class);
+        yield MenuItem::linkToCrud('Comment', 'fa fa-comments', Comment::class);
+        yield MenuItem::linkToCrud('Like', 'fa fa-heart', Like::class);
         yield MenuItem::linkToCrud('Ingredient', 'fa fa-lemon', Ingredient::class); 
 
 

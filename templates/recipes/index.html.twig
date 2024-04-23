@@ -2,7 +2,32 @@
 
 {% block title %}recipe
 {% endblock %}
+{% block stylesheets %}
 
+	<style>
+		.recipes-title-bar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.btn-add-fav {
+			padding: 5px 10px;
+			background-color: #7daf74; /* Vert Bootstrap */
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 0.9em;
+			color: white; /* Pour un meilleur contraste avec le fond vert */
+		}
+
+		.btn-add-fav:hover {
+			background-color: #218838; /* Un vert légèrement plus foncé pour l'effet de survol */
+		}
+	</style>
+
+
+{% endblock %}
 
 {% block content %}
 
@@ -34,7 +59,6 @@
 
 	<!-- End SubHeader -->
 
-
 	<div class="container margin_60">
 		<div class="main_title">
 			<h2 class="nomargin_top">Top Review</h2>
@@ -50,10 +74,15 @@
 							<img src="{{ asset('assets/images/' ~ recipe.pictureRecipe) }}" alt="{{ recipe.titleRecipe }}">
 						</div>
 						<div class="recipes-content">
-							<h3>
-								<a href="{{ path('app_recipe_detail', {'id': recipe.id}) }}">{{ recipe.titleRecipe }}</a>
-							</h3>
-
+							<div class="recipes-title-bar">
+								<h3>
+									<a href="{{ path('app_recipe_detail', {'id': recipe.id}) }}">{{ recipe.titleRecipe }}</a>
+								</h3>
+								<form action="{{ path('add_to_fav', {'id': recipe.id}) }}" method="post">
+									<button type="submit" class="btn-add-fav">add To favory</button>
+								</form>
+								<!-- Bouton Ajouter aux favoris -->
+							</div>
 							<div class="col-details">
 								<ul class="details">
 									<li>
@@ -61,20 +90,6 @@
 									</li>
 									<li>
 										<h4>Themearabia</h4>
-										<ul class="favorites">
-
-											<li>
-												<span>235</span>
-											</li>
-										</ul>
-										<ul class="comments">
-											<li>
-												<i class="far fa-comments"></i>
-											</li>
-											<li>
-												<span>36</span>
-											</li>
-										</ul>
 									</li>
 								</ul>
 								<div class="review-final-score">

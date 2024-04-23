@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\RecipeRepository;
 use App\Entity\Comment;
+use App\Entity\Like;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
@@ -27,6 +28,25 @@ class RecipesController extends AbstractController
         return $this->render('recipes/index.html.twig', [
             'recipes' => $recipes,
         ]);
+    }
+
+    #[Route('/add-to-fav/{id}', name: 'add_to_fav', methods: ['POST'])]
+    public function addToFav(int $id, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository, UserRepository $userRepository): Response
+    {
+        $recipe = $recipeRepository->find($id);
+        $user = $userRepository->find($this->getUser()->getId()); // Assurez-vous que l'utilisateur est connecté
+
+        // Créer un nouvel objet Like
+        $like = new Like();
+        $like->setRecipe($recipe);
+        $like->setLiker($user);
+
+        // Enregistrer l'objet Like
+        $entityManager->persist($like);
+        $entityManager->flush();
+
+        // Rediriger l'utilisateur vers la même page ou ailleurs après l'ajout
+        return $this->redirectToRoute('app_recipes'); // Remplacez 'some_route_name' par le nom de la route où vous souhaitez rediriger l'utilisateur
     }
 
     #[Route('/recipes/{id}', name: 'app_recipe_detail', requirements: ['id' => '\d+'])]

@@ -1,20 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FavRecipesController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block title %}Favories
+{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block content %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/srv/app/src/Controller/FavRecipesController.php'|file_link(0) }}">src/Controller/FavRecipesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/srv/app/templates/fav_recipes/index.html.twig'|file_link(0) }}">templates/fav_recipes/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<div class="container margin_60">
+		<div class="main_title">
+			<h2 class="nomargin_top">Top Review</h2>
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+			<hr class="divider">
+		</div>
+		<!-- End main_title -->
+		<div class="row">
+			{% for recipe in recipes %}
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="recipes-review">
+						<div class="recipes-img">
+							<img src="{{ asset('assets/images/' ~ recipe.pictureRecipe) }}" alt="{{ recipe.titleRecipe }}">
+						</div>
+						<div class="recipes-content">
+							<div class="recipes-title-bar">
+								<h3>
+									<a href="{{ path('app_recipe_detail', {'id': recipe.id}) }}">{{ recipe.titleRecipe }}</a>
+								</h3>
+								<!-- Le bouton n'est pas nécessaire ici puisqu'on affiche seulement les favoris -->
+							</div>
+							<div class="col-details">
+								<ul class="details">
+									<li>
+										<img src="http://placehold.it/48x48" class="img-profile" alt="">
+									</li>
+									<li>
+										<h4>Themearabia</h4>
+									</li>
+								</ul>
+								<div class="review-final-score">
+									<h3>9.9</h3>
+									<h4>Review Score</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+
+		</div>
+	</div>
+	<!-- End container -->
 {% endblock %}
