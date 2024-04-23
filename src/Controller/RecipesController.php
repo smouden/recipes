@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Security;
 
 class RecipesController extends AbstractController
 {
-    #[Route('/Recipes', name: 'app_recipes')]
+    #[Route('/', name: 'app_recipes')]
     public function index(Request $request, RecipeRepository $recipeRepository): Response
     {
         // Récupérer le terme de recherche à partir de la requête
@@ -29,13 +29,13 @@ class RecipesController extends AbstractController
         ]);
     }
 
-    #[Route('/Recipes/{id}', name: 'app_recipe_detail', requirements: ['id' => '\d+'])]
+    #[Route('/recipes/{id}', name: 'app_recipe_detail', requirements: ['id' => '\d+'])]
     public function detail(int $id, RecipeRepository $recipeRepository): Response
     {
         $recipe = $recipeRepository->find($id);
 
         if (!$recipe) {
-            throw $this->createNotFoundException('La recette demandée n\'existe pas.');
+            throw $this->createNotFoundException('recipe dont exist ');
         }
 
         // Ici, $recipe->getComments() récupère automatiquement les commentaires liés à la recette

@@ -2,15 +2,9 @@
 
 namespace App\Controller\Admin;
 use App\Entity\Category;
-use App\Entity\Contact;
 use App\Entity\Comment;
 use App\Entity\Ingredient;
-use App\Entity\Instruction;
-use App\Entity\Insurance;
-use App\Entity\Car;
-use App\Entity\Picture;
 use App\Entity\Recipe;
-use App\Entity\Reservation;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -35,7 +29,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('App');
+            ->setTitle('Dashboard Admin');
     }
 
     public function configureMenuItems(): iterable
@@ -47,6 +41,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Recipe', 'fa fa-book', Recipe::class); // "fa-book" pour représenter des recettes comme dans un livre de recettes.
         yield MenuItem::linkToCrud('Comment', 'fa fa-book', Comment::class);
         yield MenuItem::linkToCrud('Ingredient', 'fa fa-lemon', Ingredient::class); 
+
 
     }
 }

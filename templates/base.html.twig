@@ -1,211 +1,208 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<!-- Basic Page Needs -->
-		<meta charset="utf-8">
-		<meta name="description" content="Recipes Food - Food & Recipes Food Template">
-		<meta name="keywords" content="recipes food, recipes , sushi, chinese, italian food">
-		<meta
-		name="author" content="themearabia.net">
+<head>
+	<!-- Basic Page Needs -->
+	<meta charset="utf-8">
+	<meta name="description" content="Recipes Food - Food & Recipes Food Template">
+	<meta name="keywords" content="recipes food, recipes , sushi, chinese, italian food">
+	<meta name="author" content="themearabia.net">
 
 
-		<!-- Mobile Specific Metas -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-		{% block stylesheets %}
-			<!-- Main Style -->
-			<link
-			rel="stylesheet" href="{{ asset('assets/style.css') }}">
-
-			<!-- customize CSS Style -->
-			<link
-			rel="stylesheet" href="{{ asset('assets/css/customize.css') }}">
-
-			<!-- Skins Style -->
-			<link
-			rel="stylesheet" href="{{ asset('assets/css/skins/skins.css') }}">
-
-			<!-- Responsive Style -->
-			<link
-			rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-
-			<!-- Favicons -->
-			<link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-		<!-- Skins -->
-			<!-- just remove the below comments witch color skin you want to use -->
-			<!--<link rel="stylesheet" href="css/skins/blue.css">-->
-			<!--<link rel="stylesheet" href="css/skins/yellow.css">-->
-			<!--<link rel="stylesheet" href="css/skins/green.css">-->
-			<!--<link rel="stylesheet" href="css/skins/cyan.css">-->
-			<!--<link rel="stylesheet" href="css/skins/orange.css">-->
-			<!--<link rel="stylesheet" href="css/skins/pink.css">-->
-			<!--<link rel="stylesheet" href="css/skins/purple.css">-->
-			<!--<link rel="stylesheet" href="css/skins/red.css">-->
-			<!--<link rel="stylesheet" href="css/skins/lactic.css">-->
-			<!--<link rel="stylesheet" href="css/skins/darkred.css">-->
-		{% endblock %}
-	</head>
+	<!-- Main Style -->
+	<link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+
+	<!-- customize CSS Style -->
+	<link rel="stylesheet" href="{{ asset('assets/css/customize.css') }}">
+
+	<!-- Skins Style -->
+	<link rel="stylesheet" href="{{ asset('assets/css/skins/skins.css') }}">
+
+	<!-- Responsive Style -->
+	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
 
 
-	<body
-		class="sticky">
-		<!-- Preload -->
-		<div id="loader-wrapper">
-			<div id="loader"></div>
-			<div class="loader-section section-left"></div>
-			<div class="loader-section section-right"></div>
-		</div>
-		<!-- End Preload -->
+	<!-- Skins -->
+	<!-- just remove the below comments witch color skin you want to use -->
+	<!--<link rel="stylesheet" href="css/skins/blue.css">-->
+	<!--<link rel="stylesheet" href="css/skins/yellow.css">-->
+	<!--<link rel="stylesheet" href="css/skins/green.css">-->
+	<!--<link rel="stylesheet" href="css/skins/cyan.css">-->
+	<!--<link rel="stylesheet" href="css/skins/orange.css">-->
+	<!--<link rel="stylesheet" href="css/skins/pink.css">-->
+	<!--<link rel="stylesheet" href="css/skins/purple.css">-->
+	<!--<link rel="stylesheet" href="css/skins/red.css">-->
+	<!--<link rel="stylesheet" href="css/skins/lactic.css">-->
+	<!--<link rel="stylesheet" href="css/skins/darkred.css">-->
+	{% block stylesheets %}
 
-		<!-- wrap Page -->
-		<div
-			id="wrap">
-
-			<!-- Header Top -->
-			<div id="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-5">
-							<div class="select-style"></div>
-						</div>
-						<nav class="col-md-6 col-sm-6 col-xs-7">
-							<div class="main-menu-2">
-								<ul>
-									<li><a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-									<li><a href="/register"><i class="fas fa-user-plus"></i>Register</a></li>
-								</ul>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-			<!-- End Header Top -->
-
-			<!-- Header -->
-			<header class="style2">
-				<div class="container">
-
-					<div class="logo">
-						<a href="#">
-							<img src="{{ asset('assets/images/logo-green.png') }}" alt="" class="hidden-sm hidden-xs">
-							<img src="{{ asset('assets/images/logo.png') }}" alt="" class="hidden-lg hidden-md">
-
-						</a>
-					</div>
-					<div class="row">
-						<nav class="col-md-6">
-							<div class="main-menu pull-left">
-								<ul>
-									<li><a href="{{ path('app_recipes') }}"><i class="ic icon-recipes"></i>Recipes</a></li>
-									<li><a href="{{ path('app_create_recipe') }}" class="show-submenu-mega"><i class="ic icon-plus-circle"></i>Create</a></li>
-									<li><a href="/Historic" class="show-submenu"><i class="ic icon-books"></i>Historic</a></li>
-								</ul>
-							</div>
-							<!-- End main-menu -->
-						</nav>
-						<nav class="col-md-6">
-							<div class="main-menu">
-								<ul>
-									<li><a href="/FavRecipes"><i class="ic icon-heart-o"></i>Fav Recipes</a></li>
-									<li><a href="/Community"><i class="ic icon-post"></i>Community</a></li>
-									<li><a href="/Profile"><i class="ic icon-profile"></i>Profile</a></li>
-								</ul>
-							</div>
-							<!-- End main-menu -->
-						</nav>
-					</div>
-					<!-- End row -->
-				</div>
-				<!-- End container -->
-			</header>
-
-			<!-- End Header -->
-
-			{% block content %}{% endblock %}
+	{% endblock %}
+</head>
 
 
-		</div>
-		<!-- End wrap Page -->
+<body class="sticky">
+	<!-- Preload -->
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div>
+	<!-- End Preload -->
 
-		<!-- Footer -->
-		<footer>
+	<!-- wrap Page -->
+	<div id="wrap">
+
+		<!-- Header Top -->
+		<div id="header-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
-						<div id="social_footer">
-							<ul>
-								<li>
-									<a href="#">
-										<i class="fab fa-facebook-f"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fab fa-twitter"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fab fa-google-plus-g"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fab fa-instagram"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fab fa-pinterest-p"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fab fa-vimeo-v"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fab fa-youtube"></i>
-									</a>
-								</li>
-							</ul>
-							<p>
-								Recipes Food | All Rights Reserved.
-								<br/>
-								Template By themearabia.net
-							</p>
-						</div>
+					<div class="col-md-6 col-sm-6 col-xs-5">
+						<div class="select-style"></div>
 					</div>
+					<nav class="col-md-6 col-sm-6 col-xs-7">
+						<div class="main-menu-2">
+							<ul>
+								<li><a href="{{path('app_login')}}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+								<li><a href="{{path('app_register')}}"><i class="fas fa-user-plus"></i>Register</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!-- End Header Top -->
+
+		<!-- Header -->
+		<header class="style2">
+			<div class="container">
+
+				<div class="logo">
+					<a href="#">
+						<img src="{{ asset('assets/images/logo-green.png') }}" alt="" class="hidden-sm hidden-xs">
+						<img src="{{ asset('assets/images/logo.png') }}" alt="" class="hidden-lg hidden-md">
+
+					</a>
+				</div>
+				<div class="row">
+					<nav class="col-md-6">
+						<div class="main-menu pull-left">
+							<ul>
+								<li><a href="{{ path('app_recipes') }}"><i class="ic icon-recipes"></i>Recipes</a></li>
+								<li><a href="{{ path('app_create_recipe') }}" class="show-submenu-mega"><i
+											class="ic icon-plus-circle"></i>Create</a></li>
+								<li><a href="{{ path('app_historic') }}" class="show-submenu"><i
+											class="ic icon-books"></i>Historic</a></li>
+							</ul>
+						</div>
+						<!-- End main-menu -->
+					</nav>
+					<nav class="col-md-6">
+						<div class="main-menu">
+							<ul>
+								<li><a href="{{ path('app_fav_recipes') }}"><i class="ic icon-heart-o"></i>Fav
+										Recipes</a></li>
+								<li><a href="{{ path('app_profile') }}"><i class="ic icon-profile"></i>Profile</a></li>
+							</ul>
+						</div>
+						<!-- End main-menu -->
+					</nav>
 				</div>
 				<!-- End row -->
 			</div>
 			<!-- End container -->
-		</footer>
-		<!-- End Footer -->
+		</header>
+
+		<!-- End Header -->
+
+		{% block content %}{% endblock %}
 
 
-		<!-- COMMON SCRIPTS -->
-		<script src="{{ asset('assets/js/jquery-2.2.4.min.js') }}"></script>
-		<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-		<script src="{{ asset('assets/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
-		<script src="{{ asset('assets/js/jquery.easing.1.3.min.js') }}"></script>
-		<script src="{{ asset('assets/js/jquery.nicescroll.min.js') }}"></script>
-		<script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
-		<script src="{{ asset('assets/js/ResizeSensor.min.js') }}"></script>
-		<script src="{{ asset('assets/js/theia-sticky-sidebar.min.js') }}"></script>
-		<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
-		<script src="{{ asset('assets/js/jquery.themepunch.plugins.min.js') }}"></script>
-		<script src="{{ asset('assets/js/jquery.themepunch.revolution.min.js') }}"></script>
-		<script src="{{ asset('assets/js/ion.rangeSlider.min.js') }}"></script>
-		<script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
-		<script src="{{ asset('assets/js/custom.js') }}"></script>
+	</div>
+	<!-- End wrap Page -->
 
-		{% block javascripts %}{% endblock %}
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="social_footer">
+						<ul>
+							<li>
+								<a href="#">
+									<i class="fab fa-facebook-f"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-google-plus-g"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-instagram"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-pinterest-p"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-vimeo-v"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-youtube"></i>
+								</a>
+							</li>
+						</ul>
+						<p>
+							Recipes Food | All Rights Reserved.
+							<br />
+							Template By themearabia.net
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- End container -->
+	</footer>
+	<!-- End Footer -->
 
-	</body>
+
+	<!-- COMMON SCRIPTS -->
+	<script src="{{ asset('assets/js/jquery-2.2.4.min.js') }}"></script>
+	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.easing.1.3.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.nicescroll.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
+	<script src="{{ asset('assets/js/ResizeSensor.min.js') }}"></script>
+	<script src="{{ asset('assets/js/theia-sticky-sidebar.min.js') }}"></script>
+	<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.themepunch.plugins.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.themepunch.revolution.min.js') }}"></script>
+	<script src="{{ asset('assets/js/ion.rangeSlider.min.js') }}"></script>
+	<script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+	<script src="{{ asset('assets/js/custom.js') }}"></script>
+
+	{% block javascripts %}{% endblock %}
+
+</body>
 
 </html>

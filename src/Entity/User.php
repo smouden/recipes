@@ -52,10 +52,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'commentator', targetEntity: Comment::class, orphanRemoval: true)]
     private Collection $comments;
 
+
     public function __construct()
     {
         $this->recipe = new ArrayCollection();
         $this->comments = new ArrayCollection();
+
     }
     public function __toString()
     {
@@ -228,4 +230,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+
+
+
 }

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FavRecipesController extends AbstractController
 {
-    #[Route('/FavRecipes', name: 'app_fav_recipes')]
+    #[Route('/favRecipes', name: 'app_fav_recipes')]
     public function index(): Response
     {
         return $this->render('fav_recipes/index.html.twig', [
