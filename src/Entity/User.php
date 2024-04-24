@@ -55,12 +55,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'liker', targetEntity: Like::class, orphanRemoval: true)]
     private Collection $likes;
 
+    #[ORM\OneToMany(mappedBy: 'poster', targetEntity: Post::class, orphanRemoval: true)]
+    private Collection $post;
+
 
     public function __construct()
     {
         $this->recipe = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->post = new ArrayCollection();
 
     }
     public function __toString()
@@ -259,6 +263,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($like->getLiker() === $this) {
                 $like->setLiker(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Post>
+     */
+    public function getPost(): Collection
+    {
+        return $this->post;
+    }
+
+    public function addPost(Post $post): static
+    {
+        if (!$this->post->contains($post)) {
+            $this->post->add($post);
+            $post->setPoster($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): static
+    {
+        if ($this->post->removeElement($post)) {
+            // set the owning side to null (unless already changed)
+            if ($post->getPoster() === $this) {
+                $post->setPoster(null);
             }
         }
 
