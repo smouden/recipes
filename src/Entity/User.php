@@ -66,6 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->likes = new ArrayCollection();
         $this->post = new ArrayCollection();
 
+
     }
     public function __toString()
     {
@@ -298,7 +299,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 
 
 

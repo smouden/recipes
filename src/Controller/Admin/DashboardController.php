@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Controller\Admin;
+
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Ingredient;
 use App\Entity\Recipe;
 use App\Entity\User;
 use App\Entity\Like;
+use App\Entity\Post;
+use App\Entity\Topic;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,14 +38,17 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home','');
+        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home', '');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', Assurance::class);
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
         yield MenuItem::linkToCrud('Recipe Category', 'fa fa-tags', Category::class); // "fa-tags" ou une autre icône qui représente des catégories ou des classifications.
         yield MenuItem::linkToCrud('Recipe', 'fa fa-book', Recipe::class); // "fa-book" pour représenter des recettes comme dans un livre de recettes.
         yield MenuItem::linkToCrud('Comment', 'fa fa-comments', Comment::class);
         yield MenuItem::linkToCrud('Like', 'fa fa-heart', Like::class);
-        yield MenuItem::linkToCrud('Ingredient', 'fa fa-lemon', Ingredient::class); 
+        yield MenuItem::linkToCrud('Ingredient', 'fa fa-lemon', Ingredient::class);
+        yield MenuItem::linkToCrud('post', 'fa fa-envelope', Post::class);
+        yield MenuItem::linkToCrud('topic', 'fa fa-tags', Topic::class);
+
 
 
     }

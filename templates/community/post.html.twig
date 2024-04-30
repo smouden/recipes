@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Historic
+{% endblock %}
+
+{% block content %}
+	<!-- SubHeader -->
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="http://placehold.it/1400x300" data-natural-width="1400" data-natural-height="300">
+		<div id="sub_header">
+			<div class="container" id="sub_content">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Single Topic Community</h1>
+						<div class="bread-crums">
+							<a href="#">Home</a>
+							<span class="bread-crums-span">&raquo;</span>
+							<a href="#">Community</a>
+							<span class="bread-crums-span">&raquo;</span>
+							<span class="current">Single Topic Community</span>
+						</div>
+						<!-- End bread-crums -->
+					</div>
+				</div>
+				<!-- End row -->
+			</div>
+			<!-- End container -->
+		</div>
+	</section>
+	<!-- End SubHeader -->
+
+
+	<div class="white_bg">
+		<div class="container margin_60">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>  title of the Topic : {{ topic.titleTopic }}</h3>
+					<ul class="topics">
+						{% for post in posts %}
+							<li>
+								<div class="row">
+									<div class="col-md-2">
+										<div class="topic-author">
+											<a href="#" class="author-avatar">
+												<img
+												<img alt="" src="http://placehold.it/100x100">
+											<!-- Assurez-vous que le chemin est correct -->
+											</a>
+											<a href="#" title="" class="author-name">
+												Saad Mouden</a>
+											<!-- Assurez-vous que l'entité User a un attribut username -->
+											<div class="author-role">admin</div>
+										</div>
+										<!-- End topic-author -->
+									</div>
+									<div class="col-md-10">
+										<div class="topic-content">
+											<p>{{ post.contentPost }}</p>
+										</div>
+										<!-- End topic-content -->
+									</div>
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- End container -->
+	</div>
+	<!-- End white_bg -->
+{% endblock %}

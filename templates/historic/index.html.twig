@@ -31,14 +31,14 @@
 									<td>{{ recipe.creatorRecipe.firstname ~ ' ' ~ recipe.creatorRecipe.lastname }}</td>
 									<td>
 										{% if recipe.status is null %}
-											En cours de traitement
+											Currently processing
 										{% else %}
 											{{ recipe.status }}
 										{% endif %}
 									</td>
 									<td>
 										{% if recipe.score is null %}
-											En cours de traitement
+											Currently processing
 										{% else %}
 											{{ recipe.score }}
 										{% endif %}

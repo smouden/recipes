@@ -21,12 +21,18 @@ class Topic
     #[ORM\Column(length: 255)]
     private ?string $description_topic = null;
 
-    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Post::class)]
-    private Collection $post;
+    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Post::class, orphanRemoval: true)]
+    private Collection $posts;
 
+
+
+    public function __toString()
+    {
+        return $this->title_topic;
+    }
     public function __construct()
     {
-        $this->post = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,15 +67,15 @@ class Topic
     /**
      * @return Collection<int, Post>
      */
-    public function getPost(): Collection
+    public function getPosts(): Collection
     {
-        return $this->post;
+        return $this->posts;
     }
 
     public function addPost(Post $post): static
     {
-        if (!$this->post->contains($post)) {
-            $this->post->add($post);
+        if (!$this->posts->contains($post)) {
+            $this->posts->add($post);
             $post->setTopic($this);
         }
 
@@ -78,7 +84,7 @@ class Topic
 
     public function removePost(Post $post): static
     {
-        if ($this->post->removeElement($post)) {
+        if ($this->posts->removeElement($post)) {
             // set the owning side to null (unless already changed)
             if ($post->getTopic() === $this) {
                 $post->setTopic(null);

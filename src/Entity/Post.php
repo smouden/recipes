@@ -16,12 +16,15 @@ class Post
     #[ORM\Column(length: 255)]
     private ?string $content_post = null;
 
+    #[ORM\ManyToOne(inversedBy: 'posts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Topic $topic = null;
+
     #[ORM\ManyToOne(inversedBy: 'post')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $poster = null;
 
-    #[ORM\ManyToOne(inversedBy: 'post')]
-    private ?Topic $topic = null;
+
 
     public function getId(): ?int
     {
@@ -40,6 +43,18 @@ class Post
         return $this;
     }
 
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    public function setTopic(?Topic $topic): static
+    {
+        $this->topic = $topic;
+
+        return $this;
+    }
+
     public function getPoster(): ?User
     {
         return $this->poster;
@@ -52,15 +67,4 @@ class Post
         return $this;
     }
 
-    public function getTopic(): ?Topic
-    {
-        return $this->topic;
-    }
-
-    public function setTopic(?Topic $topic): static
-    {
-        $this->topic = $topic;
-
-        return $this;
-    }
 }

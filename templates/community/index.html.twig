@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Historic
+{% endblock %}
+
+{% block content %}
+
+	<!-- SubHeader -->
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="http://placehold.it/1400x300" data-natural-width="1400" data-natural-height="300">
+		<div id="sub_header">
+			<div class="container" id="sub_content">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Community</h1>
+						<div class="bread-crums">
+							<a href="#">Home</a>
+							<span class="bread-crums-span">&raquo;</span>
+							<span class="current">Community</span>
+						</div>
+						<!-- End bread-crums -->
+					</div>
+				</div>
+				<!-- End row -->
+			</div>
+			<!-- End container -->
+		</div>
+	</section>
+	<!-- End SubHeader -->
+	<div class="white_bg">
+		<div class="container margin_60">
+			<div class="row">
+				{% for topic in topics %}
+					<div class="col-lg-6 col-md-6 col-xs-12">
+						<div class="col-community">
+							<div class="thumb">
+								<i class="ic icon-community"></i>
+							</div>
+							<div class="inner">
+								<h3>
+									<a href="{{ path('app_topic', {'id': topic.id}) }}">{{ topic.titleTopic }}</a>
+								</h3>
+
+								<p>{{ topic.DescriptionTopic }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- End container -->
+	</div>
+	<!-- End white_bg -->
+{% endblock %}
