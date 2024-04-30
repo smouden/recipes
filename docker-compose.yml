@@ -27,6 +27,7 @@ services:
   caddy:
     image: ${IMAGES_PREFIX:-}app-caddy
     depends_on:
+      - database
       - php
     environment:
       SERVER_NAME: ${SERVER_NAME:-localhost}, caddy:80
