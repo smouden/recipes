@@ -20,6 +20,7 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
+      - /Users/mouden/Documents/recipes24/frankenphp/Caddyfile
     ports:
       # HTTP
       - target: 80
@@ -51,6 +52,18 @@ services:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
+  pgadmin:
+      image: dpage/pgadmin4
+      container_name: pgadmin4_container
+      restart: always
+      ports:
+        - "8080:80"
+      environment:
+       PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
+       PGADMIN_DEFAULT_PASSWORD: strong-password
+      volumes:
+        - pgadmin-data:/var/lib/pgadmin
+
 
 volumes:
   caddy_data:
