@@ -18,7 +18,7 @@ class Recipe
     #[ORM\Column(length: 255)]
     private ?string $title_recipe = null;
 
-    #[ORM\Column(length: 800)]
+    #[ORM\Column(type: 'text')]
     private ?string $description_recipe = null;
 
     #[ORM\Column]
@@ -44,7 +44,7 @@ class Recipe
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\Column(length: 800)]
+    #[ORM\Column(type: 'text')]
     private ?string $procedure = null;
 
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class, orphanRemoval: true)]
