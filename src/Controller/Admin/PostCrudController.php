@@ -5,8 +5,8 @@ use App\Entity\Post;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+
 
 class PostCrudController extends AbstractCrudController
 {
@@ -20,11 +20,15 @@ class PostCrudController extends AbstractCrudController
         return [
             IdField::new('id', 'ID')
                 ->hideOnForm(), // Cache dans le formulaire car généré automatiquement
-            TextEditorField::new('content_post', 'Contenu du Post'),
-            AssociationField::new('topic', 'Sujet')
-                ->setCrudController(TopicCrudController::class), // Assurez-vous d'avoir un contrôleur CRUD pour Topic
-            AssociationField::new('poster', 'Posteur')
-                ->setCrudController(UserCrudController::class) // Assurez-vous d'avoir un contrôleur CRUD pour User
-        ];
+            TextEditorField::new('content_post', 'Post Content'),
+            AssociationField::new('topic', 'Topic')
+                ->setCrudController(TopicCrudController::class), 
+            AssociationField::new('poster', 'Poster')
+                ->setCrudController(UserCrudController::class) 
+            
+
+
+            
+            ];
     }
 }

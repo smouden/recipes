@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -31,6 +32,11 @@ class UserCrudController extends AbstractCrudController
                 ])
                 ->renderExpanded()
                 ->renderAsBadges(),
+            ImageField::new('picture_user')
+            ->setBasePath('/assets/images/users')
+            ->setUploadDir('public/assets/images/users')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setRequired(false), // Rendre ce champ non obligatoire
  
         ];
     }

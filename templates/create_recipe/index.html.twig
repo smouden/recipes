@@ -1,70 +1,168 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+<style>
+    /* Customize form styles */
+    .recipe-form .form-group {
+        margin-bottom: 20px;
+    }
 
-{% block title %}Create-recipe
+    .recipe-form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .recipe-form .form-control,
+    .recipe-form .form-control-file {
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 14px;
+    }
+
+    .recipe-form .form-control {
+        width: 100%;
+        height: auto;
+    }
+
+    .recipe-form .textarea-large {
+        height: 200px; /* Adjust the height as needed */
+    }
+
+    .recipe-form .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-right: 10px; /* Add space between buttons */
+    }
+
+    .recipe-form .btn-primary {
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }
+
+    .recipe-form .btn-secondary {
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+
+    .form-group.buttons {
+        text-align: center; /* Center align buttons */
+    }
+</style>
 {% endblock %}
 
 {% block content %}
 <!-- SubHeader -->
-<section class="parallax-window" id="short" data-parallax="scroll"
-	data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
-	<div id="sub_header">
-		<div class="container" id="sub_content">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>Create Recipee</h1>
-					<!-- End bread-crums -->
-				</div>
-			</div>
-			<!-- End row -->
-		</div>
-		<!-- End container -->
-	</div>
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
+    <div id="sub_header">
+        <div class="container" id="sub_content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Create Recipe</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- End SubHeader -->
 
-
-
 <div class="white_bg create-recipe">
-	<div class="container margin_60">
-		<div class="main_title">
-			<h2 class="nomargin_top">Create Recipe</h2>
-			<hr class="divider">
-		</div>
-		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="container margin_60">
+        <div class="main_title">
+            <h2 class="nomargin_top">Create Recipe</h2>
+            <hr class="divider">
+        </div>
 
-		<div class="row">
-			<div class="col-md-8">
-				{{ form_row(form.title_recipe, {'attr': {'class': 'form-control', 'placeholder': 'Recipe title'}}) }}
-				{{ form_row(form.description_recipe, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder':
-				'Description'}}) }}
-				{{ form_row(form.procedure, {'attr': {'class': 'form-control', 'rows': '8', 'placeholder':
-				'Procedure'}}) }}
-				{# Ajoutez ici d'autres champs si nécessaire #}
+        <div id="form-alert" class="alert alert-danger" style="display: none;">
+            Please fill in all required fields.
+        </div>
 
-			</div>
-			<aside class="col-md-4 sidebar sticky-sidebar">
-				{{ form_row(form.picture_recipe, {'attr': {'class': 'form-control'}}) }}
-				{{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
-				{{ form_row(form.prep_time, {'attr': {'class': 'form-control', 'placeholder': 'Prep time'}}) }}
-				{{ form_row(form.cook_time, {'attr': {'class': 'form-control', 'placeholder': 'Cook time'}}) }}
-				{{ form_row(form.number_serving, {'attr': {'class': 'form-control', 'placeholder': 'Number of
-				servings'}}) }}
-			</aside>
-		</div>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'recipe-form', 'id': 'recipe-form'}}) }}
 
-		<div class="form-group">
-			<button type="submit" class="btn btn-publish">confirm</button>
-			<button type="button" class="btn btn-cancel">cancel</button>
-		</div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    {{ form_label(form.title_recipe, 'Recipe Title') }}
+                    {{ form_widget(form.title_recipe, {'attr': {'class': 'form-control', 'placeholder': 'Recipe title', 'required': 'required'}}) }}
+                    {{ form_errors(form.title_recipe) }}
+                </div>
 
-		{{ form_end(form) }}
+                <div class="form-group">
+                    {{ form_label(form.description_recipe, 'Description') }}
+                    {{ form_widget(form.description_recipe, {'attr': {'class': 'form-control textarea-large', 'placeholder': 'Description', 'required': 'required'}}) }}
+                    {{ form_errors(form.description_recipe) }}
+                </div>
 
-	</div>
-	<!-- End container -->
+                <div class="form-group">
+                    {{ form_label(form.procedure, 'Procedure') }}
+                    {{ form_widget(form.procedure, {'attr': {'class': 'form-control textarea-large', 'placeholder': 'Procedure', 'required': 'required'}}) }}
+                    {{ form_errors(form.procedure) }}
+                </div>
+            </div>
+
+            <aside class="col-md-4 sidebar sticky-sidebar">
+                <div class="form-group">
+                    {{ form_label(form.picture_recipe, 'Recipe Picture') }}
+                    {{ form_widget(form.picture_recipe, {'attr': {'class': 'form-control-file', 'required': 'required'}}) }}
+                    {{ form_errors(form.picture_recipe) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.category, 'Category') }}
+                    {{ form_widget(form.category, {'attr': {'class': 'form-control', 'required': 'required'}}) }}
+                    {{ form_errors(form.category) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.prep_time, 'Preparation Time') }}
+                    {{ form_widget(form.prep_time, {'attr': {'class': 'form-control', 'placeholder': 'Prep time', 'required': 'required'}}) }}
+                    {{ form_errors(form.prep_time) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.cook_time, 'Cooking Time') }}
+                    {{ form_widget(form.cook_time, {'attr': {'class': 'form-control', 'placeholder': 'Cook time', 'required': 'required'}}) }}
+                    {{ form_errors(form.cook_time) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.number_serving, 'Number of Servings') }}
+                    {{ form_widget(form.number_serving, {'attr': {'class': 'form-control', 'placeholder': 'Number of servings', 'required': 'required'}}) }}
+                    {{ form_errors(form.number_serving) }}
+                </div>
+            </aside>
+        </div>
+
+        <div class="form-group buttons">
+            <button type="submit" class="btn btn-primary">Confirm</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
 </div>
-<!-- End white_bg -->
 
+<script>
+    document.getElementById('recipe-form').addEventListener('submit', function(event) {
+        var form = this;
+        var isValid = true;
+        var requiredFields = form.querySelectorAll('[required]');
 
-	
+        requiredFields.forEach(function(field) {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('is-invalid'); // Optionally add a class to highlight invalid fields
+            } else {
+                field.classList.remove('is-invalid'); // Optionally remove class if valid
+            }
+        });
 
+        if (!isValid) {
+            event.preventDefault();
+            document.getElementById('form-alert').style.display = 'block';
+        }
+    });
+</script>
 {% endblock %}

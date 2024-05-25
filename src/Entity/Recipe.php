@@ -18,7 +18,7 @@ class Recipe
     #[ORM\Column(length: 255)]
     private ?string $title_recipe = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 800)]
     private ?string $description_recipe = null;
 
     #[ORM\Column]
@@ -44,17 +44,11 @@ class Recipe
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 800)]
     private ?string $procedure = null;
 
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Comment::class, orphanRemoval: true)]
     private Collection $comments;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $score = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $status = null;
 
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Like::class, orphanRemoval: true)]
     private Collection $likes;
@@ -240,29 +234,6 @@ class Recipe
         return $this;
     }
 
-    public function getScore(): ?int
-    {
-        return $this->score;
-    }
-
-    public function setScore(?int $score): static
-    {
-        $this->score = $score;
-
-        return $this;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?string $status): static
-    {
-        $this->status = $status;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Like>

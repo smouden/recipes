@@ -5,6 +5,7 @@
 {% block stylesheets %}
 
 	<style>
+		/* Css for boutton favory  */
 		.recipes-title-bar {
 			display: flex;
 			justify-content: space-between;
@@ -13,17 +14,19 @@
 
 		.btn-add-fav {
 			padding: 5px 10px;
-			background-color: #7daf74; /* Vert Bootstrap */
+			background-color: #7daf74;
 			border: none;
 			border-radius: 5px;
 			cursor: pointer;
 			font-size: 0.9em;
-			color: white; /* Pour un meilleur contraste avec le fond vert */
+			color: white;
 		}
 
 		.btn-add-fav:hover {
-			background-color: #218838; /* Un vert légèrement plus foncé pour l'effet de survol */
+			background-color: #218838;
 		}
+
+		/* Css for bouton search   */
 	</style>
 
 
@@ -37,18 +40,17 @@
 			<div class="container" id="sub_content">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>More than 100 Recipess.</h1>
+						<h1>Share your recipes with us</h1>
 						<form method="get" action="{{ path('app_recipes') }}">
 							<div id="custom-search-input">
 								<div class="input-group">
 									<input type="text" name="search" class="search-query" placeholder="Search..." value="{{ app.request.query.get('search', '') }}">
 									<span class="input-group-btn">
-										<button type="submit" class="btn_search">Search</button>
+										<input type="submit" class="btn_search" value="submit">
 									</span>
 								</div>
 							</div>
 						</form>
-
 					</div>
 				</div>
 				<!-- End row -->
@@ -81,26 +83,27 @@
 								<form action="{{ path('add_to_fav', {'id': recipe.id}) }}" method="post">
 									<button type="submit" class="btn-add-fav">add To favory</button>
 								</form>
-								<!-- Bouton Ajouter aux favoris -->
 							</div>
 							<div class="col-details">
 								<ul class="details">
 									<li>
-										<img src="http://placehold.it/48x48" class="img-profile" alt="">
+										{% if recipe.creatorRecipe.pictureUser %}
+											<img src="{{ asset('assets/images/users/' ~ recipe.creatorRecipe.pictureUser) }}" class="img-profile" alt="User Image" style="width: 48px; height: 48px; object-fit: cover;">
+										{% else %}
+											<img src="{{ asset('assets/images/users/inconnu.png') }}" class="img-profile" alt="Default User Image" style="width: 48px; height: 48px; object-fit: cover;">
+										{% endif %}
 									</li>
 									<li>
-										<h4>Saad Mouden</h4>
+										<h4>{{ recipe.creatorRecipe.firstname }}
+											{{ recipe.creatorRecipe.lastname }}</h4>
 									</li>
 								</ul>
-								<div class="review-final-score">
-									<h3>9.9</h3>
-									<h4>Review Score</h4>
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			{% endfor %}
+
 		</div>
 	</div>
 	<!-- End container -->

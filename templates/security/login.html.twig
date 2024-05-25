@@ -1,87 +1,74 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User Login
-{% endblock %}
+{% block title %}User Login{% endblock %}
 
 {% block content %}
 
-	<!-- SubHeader -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="http://placehold.it/1400x300" data-natural-width="1400" data-natural-height="300">
-		<div id="sub_header">
-			<div class="container" id="sub_content">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>User Login</h1>
-						<div class="bread-crums">
-							<a href="#">Home</a>
-							<span class="bread-crums-span">&raquo;</span>
-							<a href="#">Pages</a>
-							<span class="bread-crums-span">&raquo;</span>
-							<span class="current">User Login</span>
-						</div>
-						<!-- End bread-crums -->
-					</div>
-				</div>
-				<!-- End row -->
-			</div>
-			<!-- End container -->
-		</div>
-	</section>
-	<!-- end SubHeader -->
-	<div class="white_bg">
-		<div class="container margin_60">
-			<div class="main_title">
-				<h2 class="nomargin_top">User Loginxxx</h2>
-				<hr class="divider">
-			</div>
+<!-- SubHeader -->
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
+    <div id="sub_header">
+        <div class="container" id="sub_content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>User Login</h1>
+                    <div class="bread-crums">
+                        <a href="#">Home</a>
+                        <span class="bread-crums-span">&raquo;</span>
+                        <a href="#">Pages</a>
+                        <span class="bread-crums-span">&raquo;</span>
+                        <span class="current">User Login</span>
+                    </div>
+                    <!-- End bread-crums -->
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- End container -->
+    </div>
+</section>
+<!-- end SubHeader -->
 
-			<div class="row">
-				<div class="col-md-6">
-					<div class="login-app">
-						<h3>WITH OUR APP, YOU CAN</h3>
-						<a href="#" target="_blank" class="btn btn-color1 solid small bdr-2 round mr-6">
-							<i class="fab fa-apple"></i>
-							App Store
-						</a>
-						<a href="#" target="_blank" class="btn btn-color1 solid small bdr-2 round mr-6">
-							<i class="fab fa-android"></i>
-							Google Play
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-login">
-						{% if error %}
-							<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-						{% endif %}
+<div class="white_bg">
+    <div class="container margin_60">
+        <div class="main_title">
+            <h2 class="nomargin_top">User Login</h2>
+            <hr class="divider">
+        </div>
 
-						{% if app.user %}
-							<div class="mb-3">
-								You are logged in as
-								{{ app.user.userIdentifier }},
-								<a href="{{ path('app_logout') }}">Logout</a>
-							</div>
-						{% endif %}
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-login">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
 
-						<form method="post">
-							<div class="form-group">
-								<input type="email" value="{{ last_username }}" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
-							</div>
-							<div class="form-group">
-								<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-							</div>
-							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-							<div class="row">
-								<div class="col-md-6 col-xs-6 text-left">
-									<button type="submit" class="btn btn-primary">SIGN IN</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End container -->
-	</div>
-	<!-- End white_bg -->
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.userIdentifier }},
+                            <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+
+                    <form method="post">
+                        <div class="form-group">
+                            <input type="email" value="{{ last_username }}" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary">SIGN IN</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End container -->
+</div>
+<!-- End white_bg -->
+
 {% endblock %}

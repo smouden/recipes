@@ -47,12 +47,13 @@
 		<!--<link rel="stylesheet" href="css/skins/red.css">-->
 		<!--<link rel="stylesheet" href="css/skins/lactic.css">-->
 		<!--<link rel="stylesheet" href="css/skins/darkred.css">-->{% block stylesheets %}
-
 	{% endblock %}
+
 	</head>
 
 
-	<body class="sticky"> <!-- Preload -->
+		<body
+		class="sticky"> <!-- Preload -->
 		<div id="loader-wrapper">
 			<div id="loader"></div>
 			<div class="loader-section section-left"></div>
@@ -109,7 +110,8 @@
 									<li><a href="{{ path('app_recipes') }}"><i class="ic icon-recipes"></i>Recipes</a></li>
 									<li><a href="{{ path('app_create_recipe') }}" class="show-submenu-mega"><i class="ic icon-plus-circle"></i>Create</a></li>
 									<li><a href="{{ path('app_historic') }}" class="show-submenu"><i class="ic icon-books"></i>Historic</a></li>
-									<li><a href="{{ path('favorite_recipes') }}"><i class="ic icon-heart-o"></i>Fav Recipes</a></li>
+									<li><a href="{{ path('favorite_recipes') }}"><i class="ic icon-heart-o"></i>Fav
+																				Recipes</a></li>
 									<li><a href="{{ path('app_community') }}"><i class="ic icon-community2"></i>Community</a></li>
 									<li><a href="{{ path('app_profile') }}"><i class="ic icon-profile"></i>Profile</a></li>
 								</ul>
@@ -123,7 +125,61 @@
 			<!-- End Header -->
 
 			{% block content %}{% endblock %}
-
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="social_footer">
+								<ul>
+									<li>
+										<a href="#">
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fab fa-twitter"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fab fa-google-plus-g"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fab fa-instagram"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fab fa-pinterest-p"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fab fa-vimeo-v"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fab fa-youtube"></i>
+										</a>
+									</li>
+								</ul>
+								<p>
+									Recipes Food | All Rights Reserved.
+									<br/>
+									Template By themearabia.net
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- End row -->
+				</div>
+				<!-- End container -->
+			</footer>
+			<!-- End Footer -->
 
 		</div>
 		<!-- End wrap Page -->

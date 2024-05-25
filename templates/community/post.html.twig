@@ -6,7 +6,7 @@
 
 {% block content %}
 	<!-- SubHeader -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="http://placehold.it/1400x300" data-natural-width="1400" data-natural-height="300">
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
 		<div id="sub_header">
 			<div class="container" id="sub_content">
 				<div class="row">
@@ -34,7 +34,9 @@
 		<div class="container margin_60">
 			<div class="row">
 				<div class="col-md-12">
-					<h3>  title of the Topic : {{ topic.titleTopic }}</h3>
+					<h3>
+						title of the Topic :
+						{{ topic.titleTopic }}</h3>
 					<ul class="topics">
 						{% for post in posts %}
 							<li>
@@ -42,20 +44,22 @@
 									<div class="col-md-2">
 										<div class="topic-author">
 											<a href="#" class="author-avatar">
-												<img
-												<img alt="" src="http://placehold.it/100x100">
-											<!-- Assurez-vous que le chemin est correct -->
+												{% if post.poster.pictureUser %}
+													<img src="{{ asset('assets/images/users/' ~ post.poster.pictureUser) }}" alt="User Image" style="width: 100px; height: 100px; object-fit: cover;">
+												{% else %}
+													<img src="{{ asset('assets/images/users/inconnu.png') }}" alt="Default User Image" style="width: 100px; height: 100px; object-fit: cover;">
+												{% endif %}
 											</a>
 											<a href="#" title="" class="author-name">
-												Saad Mouden</a>
-											<!-- Assurez-vous que l'entité User a un attribut username -->
-											<div class="author-role">admin</div>
+												{{ post.poster.firstname }}
+												{{ post.poster.lastname }}
+											</a>
 										</div>
 										<!-- End topic-author -->
 									</div>
 									<div class="col-md-10">
 										<div class="topic-content">
-											<p>{{ post.contentPost }}</p>
+											<p>{{ post.contentPost|raw }}</p>
 										</div>
 										<!-- End topic-content -->
 									</div>

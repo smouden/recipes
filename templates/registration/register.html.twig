@@ -4,7 +4,7 @@
 
 {% block content %}
 	<!-- SubHeader -->
-	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="http://placehold.it/1400x300" data-natural-width="1400" data-natural-height="300">
+	<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="{{ asset('assets/images/header.png') }}" data-natural-width="1400" data-natural-height="300">
 		<div id="sub_header">
 			<div class="container" id="sub_content">
 				<div class="row">
@@ -30,11 +30,8 @@
 				<h2 class="nomargin_top">User Register</h2>
 				<hr class="divider">
 			</div>
-
 			<div class="row">
-				<div
-					class="col-md-6"><!-- Contenu pour la promotion de l'application ou autre contenu pertinent ici -->
-				</div>
+
 				<div class="col-md-6">
 					<div class="form-login">
 						{{ form_errors(registrationForm) }}
